@@ -91,7 +91,7 @@ class Function():
 
 class Class(): # pylint: disable=too-few-public-methods
     """Python class."""
-    def __init__(self, name, bases=('object',), doc=None):
+    def __init__(self, name, bases=(), doc=None):
         self._name = name
         self._bases = bases
         self._doc = docstring(doc) if doc else None
@@ -103,7 +103,7 @@ class Class(): # pylint: disable=too-few-public-methods
         stmt = f'class {self._name}({", ".join(self._bases)}):'
         subs = [self._doc] if self._doc else []
         subs += self._stmts if self._stmts else ['pass']
-        return stmt + '\n' + '\n'.join([indent(_) for _ in subs]) + '\n'
+        return stmt + '\n' + '\n'.join([indent(_) for _ in subs])
 
 class Implementation(): # pylint: disable=too-many-instance-attributes
     """An instance of this class is a FSM implemented in Python.
@@ -299,6 +299,7 @@ class Implementation(): # pylint: disable=too-many-instance-attributes
             str(b) for b in (
                 self._globals_block,
                 self._callbacks_class,
+                '',
                 self._fsm_class,
             )
         ))
