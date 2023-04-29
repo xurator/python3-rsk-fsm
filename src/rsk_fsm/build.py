@@ -26,7 +26,7 @@ that:
 * ".." is used in a relative state pointer to specify the parent state of the
     context state.
 
-.. _Hierarchical FSM Schema: https://json-schema.roughsketch.co.uk/rsk-fsmc/fsm.json
+.. _Hierarchical FSM Schema: https://json-schema.roughsketch.co.uk/rsk-fsm/fsm.json
 """
 
 # pylint: enable=line-too-long
