@@ -1,0 +1,77 @@
+{
+    "name": "test",
+    "initial": "A",
+    "states": [{
+        "state": "A",
+        "initial": "B",
+        "enter": ["enter_A"],
+        "exit": ["exit_A"],
+        "states": [{
+            "state": "B",
+            "enter": ["enter_B"],
+            "exit": ["exit_B"],
+            "transitions": [{
+                "event": "X",
+                "actions": ["jump"],
+                "next": "C"
+            }]
+        }, {
+            "state": "C",
+            "enter": ["enter_C"],
+            "exit": ["exit_C"],
+            "transitions": [{
+                "event": "X",
+                "actions": ["jump"],
+                "next": "B"
+            }, {
+                "event": "Y",
+                "actions": ["jump"],
+                "next": null
+            }]
+        }],
+        "transitions": [{
+            "event": "Z",
+            "condition": "check",
+            "actions": ["jump"],
+            "next": "D"
+        }, {
+            "event": "Z",
+            "condition": {"not": "check"},
+            "actions": ["jump"],
+            "next": "./.././D/F"
+        }]
+    }, {
+        "state": "D",
+        "initial": "E",
+        "enter": ["enter_D"],
+        "exit": ["exit_D"],
+        "states": [{
+            "state": "E",
+            "enter": ["enter_E"],
+            "exit": ["exit_E"],
+            "transitions": [{
+                "event": "X",
+                "actions": ["jump"],
+                "next": "F"
+            }]
+        }, {
+            "state": "F",
+            "enter": ["enter_F"],
+            "exit": ["exit_F"],
+            "transitions": [{
+                "event": "X",
+                "actions": ["jump"],
+                "next": "/D/E"
+            }, {
+                "event": "Y",
+                "actions": ["jump"],
+                "next": null
+            }]
+        }],
+        "transitions": [{
+            "event": "Y",
+            "actions": ["done"],
+            "next": null
+        }]
+    }]
+}
