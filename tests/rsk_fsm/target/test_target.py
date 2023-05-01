@@ -22,7 +22,12 @@ BASES = {
     SCHEMA_URI + '#transition': (Transition,),
 }
 
-PACKAGE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
+PACKAGE_DIR = os.path.abspath(
+    os.path.join(
+        os.path.dirname(__file__),
+        '../../..',
+    )
+)
 TEST_FSM = os.path.join(PACKAGE_DIR, 'share/test.fsm')
 TEST_OUT_C = os.path.join(PACKAGE_DIR, 'share/test_fsm.out')
 TEST_OUT_PY = os.path.join(PACKAGE_DIR, 'share/test_fsm.py')
