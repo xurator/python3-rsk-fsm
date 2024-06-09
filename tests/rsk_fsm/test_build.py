@@ -333,7 +333,7 @@ class _BuilderTestBuilder(type):
         """Make a function testing built `val` at `key` for test case `name`"""
         def method(self):
             """Test `val` equals `exp`"""
-            self.assertEquals(val, exp)
+            self.assertEqual(val, exp)
         fqname = 'rsk_fsm.build.Builder.build'
         method.__doc__ = f'Test {fqname} builds expected {key} for FSM {name}'
         return method
